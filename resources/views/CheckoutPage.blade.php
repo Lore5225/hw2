@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "CheckoutStyle.css">
+    <title>Checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="Checkout.js"></script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url('index') }}"><img src="{{ asset('images/homeIcon.png') }}" class="nav__icons" alt="Home"></a>
+        <a href="{{ url('ShoppingPage') }}"><div class="nav__text">Torna allo shop</div></a>
+    </nav>
+</header>
+
+<div class="checkout__container">
+    <h2>Checkout</h2>
+    <form action="{{ route('addOrder') }}" method="post">
+        @csrf
+        <label for="Nome">Nome</label>
+        <input type="text" id="Nome" name="Nome" required>
+
+        <label for="Cognome">Cognome</label>
+        <input type="text" id="Cognome" name="Cognome" required>
+
+        <label for="Indirizzo">Indirizzo</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="Codice Postale">Codice Postale</label>
+        <input type="text" id="postal_code" name="postal_code" required>
+
+        <label for="Numero">Numero di Telefono</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+
+        <label for="Note">Note aggiuntive (Citofono, Condominio, ecc)</label>
+        <input type="text" id="notes" name="notes">
+        <button type="submit" class="checkout__button">Conferma Ordine</button>
+    </form>
+    <div class="order__summary">Riepilogo Ordine</div>
+    <div class="cart__items__container">
+        @foreach($products as $product)
+        <div class="cart__item">
+            <div class="txtContainer"><p>{{ $product->nome }}</p></div>
+            <img src="{{ $product->immagine }}" alt="Product Image">
+            <div class="txtContainer"><p>Quantità: {{ $product->quantita_totale }}</p></div>
+            <div class="txtContainer"><p>Prezzo: €{{ $product->prezzo_totale }}</p></div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+</body>
+</html>
