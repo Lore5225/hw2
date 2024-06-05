@@ -88,12 +88,10 @@ document.querySelector("nav").addEventListener("mouseleave", function () {
 /////////////////////////////////////////////////////
 
 function youtubeVideos() {
-    console.log("Fetching YouTube videos...");
     fetch("/youtubeAPIRequest").then(onYoutubeSuccess).then(OnJsonYoutube);
 }
 
 function onYoutubeSuccess(response) {
-    console.log("Response received");
     if (!response.ok) {
         return null;
     }
@@ -105,6 +103,7 @@ function OnJsonYoutube(json) {
         console.error("Errore: " + json.error);
         return;
     }
+    console.log(json);
 
     const cellVideo = document.querySelector(".video__container");
     let num_results = json.contents.length;

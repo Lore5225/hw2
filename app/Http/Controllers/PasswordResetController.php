@@ -9,7 +9,6 @@ use App\Models\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Utenti;
-use Illuminate\Support\Facades\Log;
 
 class PasswordResetController extends Controller
 {

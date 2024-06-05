@@ -18,6 +18,8 @@ class DeleteExpiredTokens extends Command
 
     public function handle()
     {
+        $this->info('Eseguito il comando per eliminare i token scaduti.');
+
         PasswordReset::where('expiration_date', '<', Carbon::now())->delete();
 
         $this->info('Token di reset scaduti cancellati.');
