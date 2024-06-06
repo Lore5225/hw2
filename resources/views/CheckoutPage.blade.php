@@ -22,7 +22,8 @@
     </header>
     <div class="checkout__container">
         <h2>Checkout</h2>
-        <form id="checkoutForm" action="AddOrder.php" method="post">
+        <form id="checkoutForm" action="{{ url('addOrder') }}" method="post">
+            @csrf
             <label for="Nome">Nome</label>
             <input type="text" id="Nome" name="Nome" required>
             <div id="nomeError" class="error-style"></div>
