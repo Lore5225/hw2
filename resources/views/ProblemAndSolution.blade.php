@@ -101,16 +101,16 @@
     <div class="container-endpage">
         <div class="item-endpage">
             <h3>Tecnova Group</h3>
-            <p>
-                Sede legale e operativa:<br>
-                Via Al Idrisi, 2T 95041 Caltagirone (CT)<br>
-                Tel. 0933 31224 / 0933 25621<br>
-                Fax: 0933 25621<br>
-                Email: <a href="mailto:info@tecnovagroup.com">info@tecnovagroup.com</a><br>
-                Pec: <a href="mailto:tecnovagroup@pec.it">tecnovagroup@pec.it</a><br>
-                P.IVA: IT05086260873
-            </p>
-            <img src="{{ url('images/enel.png') }}" alt="Enel">
+            <p>Sede legale e operativa:</p>
+            <p>Via Al Idrisi, 2T 95041 Caltagirone (CT)</p>
+            <p>Tel. 0933 31224 / 0933 25621</p>
+            <p>Fax: 0933 25621</p>
+            <p>Email: <a href="mailto:info@tecnovagroup.com">info@tecnovagroup.com</a></p>
+            <p>Pec: <a href="mailto:tecnovagroup@pec.it">tecnovagroup@pec.it</a></p>
+            <p>P.IVA: IT05086260873</p>
+
+            <img src="{{ url('images/enel.png') }}" alt="" />
+
         </div>
         <div class="item-endpage">
             <div id="dubai-format">
