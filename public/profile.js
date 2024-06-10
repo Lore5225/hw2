@@ -16,12 +16,11 @@ function toggleOrdersInfo() {
     ordersInformation.classList.remove("hidden");
 }
 
-    function toggleInformationOrder(event) {
-        const button = event.target;
-        console.log("prova");
-        const information = button.nextElementSibling;
-        information.classList.toggle("order__text__open");
-    }
+function toggleInformationOrder(event) {
+    const button = event.target;
+    const information = button.nextElementSibling;
+    information.classList.toggle("order__text__open");
+}
 
 profileButton.addEventListener("click", toggleProfileInfo);
 ordersButton.addEventListener("click", toggleOrdersInfo);

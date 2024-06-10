@@ -22,7 +22,7 @@ class CartController extends Controller
         }
         $prodottiCarrello = ProdottiCarrello::where('id_carrello', $carrello->id_carrello)->get();
         $products = [];
-    
+
         foreach ($prodottiCarrello as $item) {
             $product = Prodotti::find($item->id_prodotto);
             if ($product) {
@@ -31,10 +31,10 @@ class CartController extends Controller
                 $products[] = $product;
             }
         }
-    
+
         return view('ShoppingCart', ['products' => $products]);
     }
-    
+
 
     public function addToCart()
     {
@@ -60,7 +60,6 @@ class CartController extends Controller
             $nuovoProdottoCarrello->prezzo_totale = $prezzo;
             $nuovoProdottoCarrello->save();
         }
-
         return response()->json(['success' => true]);
     }
 
@@ -76,7 +75,7 @@ class CartController extends Controller
 
         if ($carrello) {
             $prodotto_carrello = $carrello->prodotti()->where('prodotti.id', $id_prodotto)->first();
-            
+
             if ($prodotto_carrello) {
                 if ($prodotto_carrello->pivot->quantita_totale > 1) {
                     $prodotto_carrello->pivot->quantita_totale -= 1;
@@ -114,5 +113,4 @@ class CartController extends Controller
         }
         return response()->json($products);
     }
-    
 }

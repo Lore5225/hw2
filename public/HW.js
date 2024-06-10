@@ -1,7 +1,5 @@
 const documentBody = document.querySelector("body");
 
-///////////////////////////////
-
 const observerLeftToRight = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -14,6 +12,7 @@ const hiddenLeftRigth = document.querySelectorAll(
 );
 hiddenLeftRigth.forEach((hidden) => observerLeftToRight.observe(hidden));
 
+const hiddenFadeIn = document.querySelectorAll(".hidden_transition_FadeIn");
 const observerFadeIn = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -21,11 +20,10 @@ const observerFadeIn = new IntersectionObserver((entries) => {
         }
     });
 });
-const hiddenFadeIn = document.querySelectorAll(".hidden_transition_FadeIn");
 hiddenFadeIn.forEach((hidden) => observerFadeIn.observe(hidden));
 
-/////////////////////////////////////////////////////
 const problems = document.querySelectorAll(".row__problem h3");
+
 function probTendina(event) {
     const container = event.currentTarget.parentNode;
     const solution = container.querySelector(".solution-text");
@@ -37,14 +35,6 @@ function probTendina(event) {
 for (const problem of problems) {
     problem.addEventListener("click", probTendina);
 }
-/////////////////////////////////////////////////////
-const carrello = document.querySelector("#shopping-cart");
-function shopping() {
-    const containerShop = document.querySelector(".flex-shopping");
-    containerShop.classList.remove("hidden");
-}
-carrello.addEventListener("click", shopping);
-/////////////////////////////////////////////////////
 
 const hamburgerIcon = document.getElementById("hamburger__icon");
 const nav = document.querySelector("nav");
@@ -53,25 +43,25 @@ hamburgerIcon.addEventListener("click", () => {
     nav.classList.toggle("open");
 });
 
-const tendine = document.querySelectorAll("nav h1");
+const NavElement = document.querySelectorAll("nav h1");
 
 function menuTendina(event) {
     const container = event.currentTarget;
-    const text = container.nextElementSibling;
+    const TextToShow = container.nextElementSibling;
 
     if (window.innerWidth <= 768) {
-        text.classList.toggle("nav-text-open");
+        TextToShow.classList.toggle("nav-text-open");
     } else {
         document.querySelectorAll(".nav-text").forEach((navText) => {
-            if (navText !== text) {
+            if (navText !== TextToShow) {
                 navText.classList.remove("nav-text-open");
             }
         });
-        text.classList.add("nav-text-open");
+        TextToShow.classList.add("nav-text-open");
     }
 }
 
-for (const tendina of tendine) {
+for (const tendina of NavElement) {
     if (window.innerWidth > 768) {
         tendina.addEventListener("mouseover", menuTendina);
     } else {
@@ -84,8 +74,6 @@ document.querySelector("nav").addEventListener("mouseleave", function () {
         navText.classList.remove("nav-text-open");
     });
 });
-
-/////////////////////////////////////////////////////
 
 function youtubeVideos() {
     fetch("/youtubeAPIRequest").then(onYoutubeSuccess).then(OnJsonYoutube);
