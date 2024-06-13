@@ -31,7 +31,7 @@ class HomeController extends BaseController
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "x-rapidapi-host: youtube138.p.rapidapi.com",
-                "x-rapidapi-key: 7cf568ffd6msh6fd531be9b49fb2p10fbe1jsn0ca59220b057"
+                "x-rapidapi-key: 74908fddb5mshdf5d39b7e5212d2p1e682ajsn2dc8e06f3c19"
             ],
         ]);
 
