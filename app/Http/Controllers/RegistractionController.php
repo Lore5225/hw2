@@ -62,10 +62,10 @@ class RegistractionController extends BaseController
     public function CheckIfExists($field)
     {
         if (empty(Request::get('q'))) {
-            return response()->json(['exists' => false]);
+            redirect('index');
         }
         if (!in_array($field, ['username', 'email'])) {
-            return response()->json(['exists' => false]);
+            redirect('index');
         }
 
         $user = Utenti::where($field, Request::get('q'))->first();
